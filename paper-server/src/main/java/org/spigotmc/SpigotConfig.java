@@ -66,7 +66,7 @@ public class SpigotConfig {
         SpigotConfig.config.options().copyDefaults(true);
 
         SpigotConfig.commands = new HashMap<>();
-        SpigotConfig.commands.put("spigot", new SpigotCommand("spigot"));
+        SpigotConfig.commands.put("me/emmy/spigot", new SpigotCommand("me/emmy/spigot"));
 
         SpigotConfig.version = SpigotConfig.getInt("config-version", 12);
         SpigotConfig.set("config-version", 12);

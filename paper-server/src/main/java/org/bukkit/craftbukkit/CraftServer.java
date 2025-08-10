@@ -42,6 +42,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.imageio.ImageIO;
+import me.emmy.spigot.SuperSpigot;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minecraft.Optionull;
@@ -57,7 +58,6 @@ import net.minecraft.nbt.NbtException;
 import net.minecraft.nbt.ReportedNbtException;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.ConsoleInput;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ReloadableServerRegistries;
 import net.minecraft.server.WorldLoader;
@@ -151,7 +151,6 @@ import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
-import org.bukkit.conversations.Conversable;
 import org.bukkit.craftbukkit.ban.CraftIpBanList;
 import org.bukkit.craftbukkit.ban.CraftProfileBanList;
 import org.bukkit.craftbukkit.block.data.CraftBlockData;
@@ -273,7 +272,7 @@ import org.yaml.snakeyaml.error.MarkedYAMLException;
 import net.md_5.bungee.api.chat.BaseComponent; // Spigot
 
 public final class CraftServer implements Server {
-    private final String serverName = io.papermc.paper.ServerBuildInfo.buildInfo().brandName();
+    private final String serverName = "SuperSpigot"; // Paper fork
     private final String serverVersion;
     private final String bukkitVersion = Versioning.getBukkitVersion();
     private final Logger logger = Logger.getLogger("Minecraft");
@@ -295,6 +294,9 @@ public final class CraftServer implements Server {
     private final EntityMetadataStore entityMetadata = new EntityMetadataStore();
     private final PlayerMetadataStore playerMetadata = new PlayerMetadataStore();
     private final WorldMetadataStore worldMetadata = new WorldMetadataStore();
+
+    public final SuperSpigot superSpigot;
+
     private final Object2IntOpenHashMap<SpawnCategory> spawnCategoryLimit = new Object2IntOpenHashMap<>();
     private File container;
     private WarningState warningState = WarningState.DEFAULT;
@@ -435,6 +437,8 @@ public final class CraftServer implements Server {
         if (!Main.useConsole) {
             this.getLogger().info("Console input is disabled due to --noconsole command argument");
         }
+
+        this.superSpigot = new SuperSpigot(this.console);
 
         this.configuration = YamlConfiguration.loadConfiguration(this.getConfigFile());
         this.configuration.options().copyDefaults(true);

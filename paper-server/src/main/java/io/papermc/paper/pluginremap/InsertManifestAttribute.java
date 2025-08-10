@@ -14,7 +14,7 @@ final class InsertManifestAttribute implements Transformer {
     static final String PAPERWEIGHT_NAMESPACE_MANIFEST_KEY = "paperweight-mappings-namespace";
     static final String MOJANG_NAMESPACE = "mojang";
     static final String MOJANG_PLUS_YARN_NAMESPACE = "mojang+yarn";
-    static final String SPIGOT_NAMESPACE = "spigot";
+    static final String SPIGOT_NAMESPACE = "me/emmy/spigot";
     static final Set<String> KNOWN_NAMESPACES = Set.of(MOJANG_NAMESPACE, MOJANG_PLUS_YARN_NAMESPACE, SPIGOT_NAMESPACE);
 
     private final String mainAttributesKey;

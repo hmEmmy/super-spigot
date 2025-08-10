@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 public final class PluginConfigConstraints {
 
-    public static final Set<String> RESERVED_KEYS = Set.of("bukkit", "minecraft", "mojang", "spigot", "paper");
+    public static final Set<String> RESERVED_KEYS = Set.of("bukkit", "minecraft", "mojang", "me/emmy/spigot", "paper");
 
     @Documented
     @Retention(RetentionPolicy.RUNTIME)
