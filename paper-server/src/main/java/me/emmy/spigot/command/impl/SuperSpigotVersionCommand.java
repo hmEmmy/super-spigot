@@ -12,13 +12,13 @@ import java.util.List;
  * @project super-spigot
  * @since 10/08/2025
  */
-public class SuperVersionCommand extends BukkitCommand {
+public class SuperSpigotVersionCommand extends BukkitCommand {
     /**
-     * Constructor for the VersionCommand class.
+     * Constructor for the SuperSpigotVersionCommand class.
      *
      * @param name the name of the command
      */
-    public SuperVersionCommand(@NotNull final String name) {
+    public SuperSpigotVersionCommand(@NotNull final String name) {
         super(name);
         this.description = "Displays the version of the server";
         this.usageMessage = "/version";
@@ -28,7 +28,7 @@ public class SuperVersionCommand extends BukkitCommand {
 
     @Override
     public boolean execute(@NotNull final CommandSender sender, @NotNull final String commandLabel, final @NotNull String @NotNull [] args) {
-        String versionMessage = CC.translateLegacy("&fRunning &b" + SuperSpigot.getInstance().NAME + " &fversion &b" + SuperSpigot.getInstance().VERSION + " &ffor &bMinecraft 1.21");
+        String versionMessage = CC.translateLegacy("&fRunning &b&l" + SuperSpigot.getInstance().NAME + " &fversion &b&l" + SuperSpigot.getInstance().VERSION + " &fmade by &b&l" + SuperSpigot.getInstance().AUTHOR.toUpperCase() + " &ffor &b&lMinecraft 1.21");
         sender.sendMessage(versionMessage);
 
         return false;

@@ -2,15 +2,10 @@ package me.emmy.spigot;
 
 import me.emmy.spigot.command.CommandRegistry;
 import me.emmy.spigot.command.impl.PingCommand;
-import me.emmy.spigot.command.impl.SuperVersionCommand;
+import me.emmy.spigot.command.impl.SuperSpigotVersionCommand;
 import me.emmy.spigot.util.CC;
 import net.minecraft.server.MinecraftServer;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandMap;
-import org.bukkit.potion.PotionEffect;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Emmy
@@ -42,7 +37,7 @@ public class SuperSpigot {
 
         Arrays.asList(
             new PingCommand("ping"),
-            new SuperVersionCommand("version")
+            new SuperSpigotVersionCommand("version")
         ).forEach(this.commandRegistry::addCommand);
     }
 
